@@ -1,0 +1,55 @@
+@use "../../App.scss" as vars;
+
+.container-register {
+  height: 100vh;
+}
+
+.input-padrao {
+  border-radius: 0px;
+  border: 1px solid vars.$mediumGray;
+  background-color: transparent;
+  color: white;
+}
+
+.input-padrao:focus {
+  color: white;
+  background-color: transparent;
+  border-color: vars.$mediumGray;
+  box-shadow: 0 0 1px 0.5px vars.$lightGray !important;
+}
+
+.input-padrao::placeholder {
+  color: vars.$lightGray !important;
+}
+
+.form-register {
+  border: 1px solid vars.$mediumGray;
+  padding: 45px 5% 45px 5%;
+}
+
+.btn-register {
+  border: 2px solid vars.$lightRed;
+  padding: 8px 15px;
+  color: vars.$lightGray;
+}
+
+.btn-register:hover, .btn-register:focus {
+  color: white;
+  background-color: vars.$lightRed;
+}
+
+.div-btn-register {
+  padding-top: 45px;
+}
+
+.div-span-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  margin-bottom: 45px !important;
+}
+
+.span-register {
+  text-align: center;
+}
