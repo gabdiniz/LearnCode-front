@@ -10,22 +10,21 @@ export function Register() {
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
-    console.log(data)
     if (data.password !== data.confirm_password) {
       return toast.error("As senhas devem ser iguais.", {
         position: "bottom-right",
         duration: 2500,
       });
     }
-    axios.post("http://localhost:3001/auth/register", data)
+
+    axios.post(`${process.env.REACT_APP_IP}:3001/auth/register`, data)
       .then(() => {
         return toast.success("Conta criada!", { position: "bottom-right", duration: 2500 });
       })
       .catch((err) => {
-        console.log(err)
         return toast.error(err.response?.data.message, { position: "bottom-right", duration: 2500, });
       });
-  }
+  };
 
   return (
     <Container className="container-register d-flex flex-column align-items-center justify-content-center">
@@ -48,5 +47,5 @@ export function Register() {
         </div>
       </Form>
     </Container>
-  )
-}
+  );
+};
