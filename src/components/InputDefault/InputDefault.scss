@@ -1,0 +1,20 @@
+@use "../../App.scss" as vars;
+
+
+.form-control-default {
+  border-radius: 0px;
+  border: 1px solid vars.$mediumGray;
+  background-color: transparent;
+  color: white;
+}
+
+.form-control-default:focus {
+  color: white;
+  background-color: transparent;
+  border-color: vars.$mediumGray;
+  box-shadow: 0 0 1px 0.5px vars.$lightGray !important;
+}
+
+.form-control-default::placeholder {
+  color: vars.$lightGray !important;
+}
