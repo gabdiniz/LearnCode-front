@@ -3,6 +3,7 @@ import './Register.scss';
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { InputDefault } from "../../components/InputDefault/InputDefault";
 
 export function Register() {
 
@@ -33,26 +34,14 @@ export function Register() {
           <h4 className="text-white span-register">faça sua conta!</h4>
         </div>
         <div className="d-flex gap-3 mb-3">
-          <Form.Group>
-            <Form.Control className="input-padrao" type="text" placeholder="Nome" {...register("first_name")} />
-          </Form.Group>
-          <Form.Group>
-            <Form.Control className="input-padrao" type="text" placeholder="Sobrenome" {...register("last_name")} />
-          </Form.Group>
+          <InputDefault placeholder="Nome" {...register("first_name")} />
+          <InputDefault placeholder="Sobrenome" {...register("last_name")} />
         </div>
-        <Form.Group className="mb-3">
-          <Form.Control className="input-padrao" type="text" placeholder="E-mail" {...register("email")} />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Control className="input-padrao" type="text" placeholder="Telefone" {...register("phone")} />
-        </Form.Group>
+        <InputDefault classNameGroup="mb-3" placeholder="E-mail" {...register("email")} />
+        <InputDefault classNameGroup="mb-3" placeholder="Telefone" {...register("phone")} />
         <div className="d-flex gap-3">
-          <Form.Group>
-            <Form.Control className="input-padrao" type="password" placeholder="Senha" {...register("password")} />
-          </Form.Group>
-          <Form.Group>
-            <Form.Control className="input-padrao" type="password" placeholder="Confirmar senha" {...register("confirm_password")} />
-          </Form.Group>
+          <InputDefault type="password" placeholder="Senha" {...register("password")} />
+          <InputDefault type="password" placeholder="Confirmar senha" {...register("confirm_password")} />
         </div>
         <div className="d-flex justify-content-center div-btn-register">
           <Button type="submit" variant="transparent" className="btn-register">Cadastrar</Button>
