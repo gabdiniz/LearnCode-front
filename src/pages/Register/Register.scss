@@ -1,7 +1,7 @@
 @use "../../App.scss" as vars;
 
 .container-register {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .input-padrao {
@@ -31,9 +31,11 @@
   border: 2px solid vars.$lightRed;
   padding: 8px 15px;
   color: vars.$lightGray;
+  min-width: 130px;
 }
 
-.btn-register:hover, .btn-register:focus {
+.btn-register:hover,
+.btn-register:focus {
   color: white;
   background-color: vars.$lightRed;
 }

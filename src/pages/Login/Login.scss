@@ -1,0 +1,53 @@
+@use "../../App.scss" as vars;
+
+.container-login {
+  min-height: 100vh;
+}
+
+.form-login {
+  border: 1px solid vars.$mediumGray;
+  padding: 45px 5% 45px 5%;
+  min-width: 90%;
+}
+
+.div-span-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  margin-bottom: 45px !important;
+}
+
+.span-login {
+  text-align: center;
+}
+
+.btn-login {
+  border: 2px solid vars.$lightRed;
+  padding: 8px 15px;
+  color: vars.$lightGray;
+  min-width: 130px;
+}
+
+.btn-login:hover,
+.btn-login:focus {
+  color: white;
+  background-color: vars.$lightRed;
+}
+
+.div-btn-login {
+  padding-top: 45px;
+}
+
+@media (min-width: 768px) {
+  .form-login {
+    min-width: 483px;
+    width: 483px !important;
+  }
+}
+
+@media (min-width: 1921px) {
+  .form-login {
+    width: 683px !important;
+  }
+}

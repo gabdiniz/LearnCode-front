@@ -30,7 +30,7 @@ export function Register() {
     <Container className="container-register d-flex flex-column align-items-center justify-content-center">
       <Form onSubmit={handleSubmit(onSubmit)} className="form-register">
         <div className="text-center  div-span-register">
-          <h4 className="text-white span-register">faça sua conta!</h4>
+          <h4 className="text-white span-register">Faça sua conta!</h4>
         </div>
         <div className="d-flex gap-3 mb-3">
           <InputDefault placeholder="Nome" {...register("first_name")} />
