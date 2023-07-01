@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { InputDefault } from "../../components/InputDefault/InputDefault";
+import { HeaderLoginRegister } from "../../components/HeaderLoginRegister/HeaderLoginRegister";
 
 export function Register() {
 
@@ -27,25 +28,29 @@ export function Register() {
   };
 
   return (
-    <Container className="container-register d-flex flex-column align-items-center justify-content-center">
-      <Form onSubmit={handleSubmit(onSubmit)} className="form-register">
-        <div className="text-center  div-span-register">
-          <h4 className="text-white span-register">Faça sua conta!</h4>
-        </div>
-        <div className="d-flex gap-3 mb-3">
-          <InputDefault placeholder="Nome" {...register("first_name")} />
-          <InputDefault placeholder="Sobrenome" {...register("last_name")} />
-        </div>
-        <InputDefault classNameGroup="mb-3" placeholder="E-mail" {...register("email")} />
-        <InputDefault classNameGroup="mb-3" placeholder="Telefone" {...register("phone")} />
-        <div className="d-flex gap-3">
-          <InputDefault type="password" placeholder="Senha" {...register("password")} />
-          <InputDefault type="password" placeholder="Confirmar senha" {...register("confirm_password")} />
-        </div>
-        <div className="d-flex justify-content-center div-btn-register">
-          <Button type="submit" variant="transparent" className="btn-register">Cadastrar</Button>
-        </div>
-      </Form>
-    </Container>
+    <div className="div-maior-register d-flex flex-column justify-content-between">
+      <HeaderLoginRegister path="/entrar" button="Entrar"/>
+      <Container className="container-register d-flex flex-column align-items-center justify-content-center">
+        <Form onSubmit={handleSubmit(onSubmit)} className="form-register">
+          <div className="text-center  div-span-register">
+            <h4 className="text-white span-register">Faça sua conta!</h4>
+          </div>
+          <div className="d-flex gap-3 mb-3">
+            <InputDefault placeholder="Nome" {...register("first_name")} />
+            <InputDefault placeholder="Sobrenome" {...register("last_name")} />
+          </div>
+          <InputDefault classNameGroup="mb-3" placeholder="E-mail" {...register("email")} />
+          <InputDefault classNameGroup="mb-3" placeholder="Telefone" {...register("phone")} />
+          <div className="d-flex gap-3">
+            <InputDefault type="password" placeholder="Senha" {...register("password")} />
+            <InputDefault type="password" placeholder="Confirmar senha" {...register("confirm_password")} />
+          </div>
+          <div className="d-flex justify-content-center div-btn-register">
+            <Button type="submit" variant="transparent" className="btn-register">Cadastrar</Button>
+          </div>
+        </Form>
+      </Container>
+      <div></div>
+    </div>
   );
 };
