@@ -1,0 +1,27 @@
+@use "../../App.scss" as vars;
+
+.title-learnCode {
+  background: linear-gradient(to top, vars.$lightRed, rgba(0, 0, 0, 1) 140%);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-family: monospace;
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.header-login-register {
+  background-image: linear-gradient(to right, #151515ee, black);
+}
+
+.btn-login-register {
+  border: 2px solid vars.$darkRed;
+  padding: 8px 15px;
+  color: vars.$lightGray;
+}
+
+.btn-login-register:hover,
+.btn-login-register:focus {
+  color: white;
+  background-color: vars.$darkRed;
+}
