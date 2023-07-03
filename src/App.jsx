@@ -3,6 +3,7 @@ import { Register } from "./pages/Register/Register";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext/AuthContext";
 import { Login } from "./pages/Login/Login";
+import { Root } from "./pages/Root/Root";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<Root />} >
+              
+            </Route>
             <Route path="/cadastrar" element={<Register />} />
             <Route path="/entrar" element={<Login />} />
           </Routes>
