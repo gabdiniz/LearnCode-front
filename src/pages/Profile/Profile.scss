@@ -1,0 +1,85 @@
+@use "../../App.scss" as vars;
+
+
+.div-maior-profile {
+  padding-bottom: 10vh;
+}
+
+.opcoes-profile {
+  border: 1px solid vars.$mediumGray;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  color: vars.$lightGray;
+
+}
+
+
+.opcoes-profile:hover {
+  transition: 0.3s;
+  color: vars.$lightRed;
+}
+
+.div-opcoes-profile {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.div-inputs {
+  border: 1px solid vars.$mediumGray;
+  padding: 45px 5% 45px 5%;
+  height: min-content;
+}
+
+.btn-profile {
+  border: 2px solid vars.$lightRed;
+  padding: 8px 15px;
+  color: vars.$lightGray;
+  min-width: 130px;
+}
+
+.btn-profile:hover,
+.btn-profile:focus {
+  color: white;
+  background-color: vars.$lightRed;
+}
+
+.avatar-initials-profile {
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  font-size: 1rem;
+  background-color: vars.$lightRed;
+  padding: 0.8rem;
+  border-radius: 2rem;
+}
+
+.div-avatar-profile {
+  height: 44px;
+  margin-bottom: 30px !important;
+}
+
+.span-nome-profile {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.div-btn-register {
+  padding-top: 30px;
+}
+
+@media (max-width: 767px) {
+  .div-maior-profile {
+    flex-direction: column !important;
+    padding: 10px;
+  }
+
+  .opcoes-profile {
+    width: 200px;
+  }
+
+  .div-maior-profile {
+    padding-bottom: 0;
+  }
+}
