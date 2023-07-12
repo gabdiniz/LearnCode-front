@@ -1,0 +1,71 @@
+@use "../../App.scss" as vars;
+
+.inner-carousel {
+  display: flex;
+}
+
+.item-carousel {
+  min-width: 150px;
+  min-height: 214px;
+  max-width: 150px;
+  padding: 7px;
+}
+
+
+
+.item-carousel img {
+  border-radius: 2px;
+  width: 100%;
+  height: 90%;
+  pointer-events: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(217, 220, 222, 0.15) 0px 1px 3px 1px;
+}
+
+.carousel {
+  cursor: grab;
+  overflow: hidden !important;
+  margin-left: 3%;
+}
+
+.item-carousel:hover {
+  padding-top: 0;
+  padding-bottom: 14px;
+  transition: 0.5s;
+}
+
+.title-carousel {
+  padding-left: 3%;
+  padding-bottom: 8px;
+  color: vars.$lightGray;
+}
+
+@media (min-width: 600px) {
+  .item-carousel {
+    min-height: 258.11px;
+    max-width: 180px;
+    min-width: 180px;
+  }
+
+  .title-carousel {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .item-carousel {
+    padding: 14px;
+    min-height: 310px;
+    max-width: 220px;
+    min-width: 220px;
+  }
+
+  .item-carousel:hover {
+    padding-bottom: 28px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .item-carousel img {
+    box-shadow: rgba(255, 255, 255, 0.3) 0px 1px 3px 0px, rgba(255, 255, 255, 0.15) 0px 1px 3px 1px;
+  }
+}
