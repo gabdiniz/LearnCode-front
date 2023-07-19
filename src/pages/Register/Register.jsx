@@ -5,10 +5,12 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { InputDefault } from "../../components/InputDefault/InputDefault";
 import { HeaderLoginRegister } from "../../components/HeaderLoginRegister/HeaderLoginRegister";
+import { useNavigate } from "react-router-dom";
 
 export function Register() {
 
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate()
 
   function onSubmit(data) {
     if (data.password !== data.confirm_password) {
@@ -20,6 +22,7 @@ export function Register() {
 
     axios.post(`${process.env.REACT_APP_IP}:3001/auth/register`, data)
       .then(() => {
+        navigate("/entrar");
         return toast.success("Conta criada!", { position: "bottom-right", duration: 2500 });
       })
       .catch((err) => {

@@ -2,15 +2,19 @@ import { Button, Container, Form } from "react-bootstrap";
 import "./Profile.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { InputDefault } from "../../components/InputDefault/InputDefault";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { BsBoxArrowRight } from "react-icons/bs";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+
 
 export function Profile() {
 
   const navigate = useNavigate();
   const token = localStorage.getItem("token")
+  const { userLogout } = useContext(AuthContext);
 
   useEffect(() => {
     if (!token) navigate("/entrar");
@@ -58,6 +62,11 @@ export function Profile() {
       })
   }
 
+  function onLogout() {
+    userLogout();
+    navigate("/entrar");
+  }
+
   return (
     <Container className="div-maior-profile d-flex gap-5 justify-content-center">
       <div className="div-opcoes-profile d-flex" >
@@ -81,6 +90,7 @@ export function Profile() {
             <div className="d-flex justify-content-center div-btn-register">
               <Button type="submit" variant="transparent" className="btn-register">Salvar Alterações</Button>
             </div>
+            <Button variant="transparent" className="btn-sair" onClick={onLogout}><BsBoxArrowRight className="icons-navbar"/></Button>
           </Form>
           :
           <Form className="d-flex flex-column div-inputs gap-3 p-5" onSubmit={formSenha.handleSubmit(onSubmitSenha)}>

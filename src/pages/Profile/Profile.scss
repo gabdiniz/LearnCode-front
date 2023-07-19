@@ -13,7 +13,6 @@
 
 }
 
-
 .opcoes-profile:hover {
   transition: 0.3s;
   color: vars.$lightRed;
@@ -22,13 +21,14 @@
 .div-opcoes-profile {
   display: flex;
   flex-direction: column;
-
 }
 
 .div-inputs {
   border: 1px solid vars.$mediumGray;
   padding: 45px 5% 45px 5%;
   height: min-content;
+  position: relative;
+
 }
 
 .btn-profile {
@@ -36,6 +36,19 @@
   padding: 8px 15px;
   color: vars.$lightGray;
   min-width: 130px;
+}
+
+.btn-sair {
+  font-size: 20px;
+  color: vars.$lightGray;
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+}
+
+.btn-sair:hover,
+.btn-sair:focus {
+  color: white;
 }
 
 .btn-profile:hover,
