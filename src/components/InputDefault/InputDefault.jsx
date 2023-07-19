@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import "./InputDefault.scss";
 import { Form } from "react-bootstrap";
 
-export const InputDefault = forwardRef(({ placeholder, classNameGroup, classNameControl, label, type, required, ...props }, ref) => {
+export const InputDefault = forwardRef(({ placeholder, classNameGroup, classNameControl, label, type, required, err, ...props }, ref) => {
 
   return (
     <Form.Group className={`form-group-default ${classNameGroup}`}>
@@ -17,6 +17,13 @@ export const InputDefault = forwardRef(({ placeholder, classNameGroup, className
         required={required ? required : false}
         {...props}
       />
+      {
+        err
+        &&
+        <Form.Text className="invalid-feedback">
+          {err}
+        </Form.Text>
+      }
     </Form.Group>
   )
 });

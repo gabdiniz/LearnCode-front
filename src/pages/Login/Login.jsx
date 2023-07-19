@@ -7,10 +7,17 @@ import { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { HeaderLoginRegister } from "../../components/HeaderLoginRegister/HeaderLoginRegister";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { object, string } from "yup";
 
 export function Login() {
 
-  const { register, handleSubmit } = useForm();
+  const schema = object({
+    email: string().required("O e-mail é obrigatório.").email("Inseria um e-mail valido."),
+    password: string().required("A senha é obrigatória").min(8, "Minímo de 8 caracteres")
+  });
+
+  const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
   const { userLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -36,8 +43,8 @@ export function Login() {
           <div className="text-center  div-span-login">
             <h4 className="text-white span-login">Entre com sua conta!</h4>
           </div>
-          <InputDefault classNameGroup="mb-5" placeholder="E-mail" {...register("email")} />
-          <InputDefault type="senha" placeholder="Senha" {...register("password")} />
+          <InputDefault classNameControl={errors.email && " is-invalid"} classNameGroup="mb-5" placeholder="E-mail" err={errors?.email?.message} {...register("email")} />
+          <InputDefault classNameControl={errors.password && " is-invalid"} type="senha" placeholder="Senha" err={errors?.password?.message}{...register("password")} />
           <div className="d-flex justify-content-center div-btn-login">
             <Button type="submit" variant="transparent" className="btn-login">Entrar</Button>
           </div>
