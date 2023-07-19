@@ -12,9 +12,13 @@
   color: white;
   background-color: transparent;
   border-color: vars.$mediumGray;
-  box-shadow: 0 0 1px 0.5px vars.$lightGray !important;
+  box-shadow: 0 0 1px 0.5px vars.$lightGray;
 }
 
 .form-control-default::placeholder {
   color: vars.$lightGray !important;
+}
+
+.form-control.is-invalid{
+  padding-right: 12px;
 }
