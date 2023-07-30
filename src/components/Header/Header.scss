@@ -1,7 +1,6 @@
 @use "../../App.scss" as vars;
 
 .title-learnCode {
-  background: linear-gradient(to top, vars.$lightRed, rgba(0, 0, 0, 1) 140%);
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
@@ -22,6 +21,40 @@
   font-size: 1rem;
   background-color: vars.$darkRed;
   padding: 0.8rem;
-  box-shadow: 0px 0px 5px 1px vars.$lightRed;
   border-radius: 2rem;
+}
+
+.icons-header {
+  color: white;
+  font-size: 18px;
+}
+
+.opcoes-header {
+  padding: 20px;
+  margin-right: 10px;
+  color: white;
+  border: solid 1px vars.$darkGray;
+  background-color: black;
+}
+
+.opcoes-header:hover,
+.icons-header:hover {
+  color: vars.$lightRed;
+
+  .icons-header {
+    color: vars.$lightRed;
+  }
+}
+
+.div-opcoes-header {
+  top: 100%;
+  min-width: 100PX;
+  z-index: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 575px) {
+  .opcoes-header {
+    padding: 15px;
+  }
 }
