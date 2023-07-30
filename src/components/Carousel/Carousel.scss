@@ -38,6 +38,10 @@
   color: vars.$lightGray;
 }
 
+.title-carousel {
+  cursor: default;
+}
+
 @media (min-width: 600px) {
   .item-carousel {
     min-height: 258.11px;
