@@ -9,7 +9,7 @@ export function Home() {
   const [categories, setCategories] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/categories")
+    axios.get(`${process.env.REACT_APP_IP}/categories`)
       .then((response) => {
         setCategories(response.data);
       })

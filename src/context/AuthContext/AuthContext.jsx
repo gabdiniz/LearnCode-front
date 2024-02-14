@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   const userLogin = async (data) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_IP}:3001/auth/login`, data);
+      const response = await axios.post(`${process.env.REACT_APP_IP}/auth/login`, data);
       const token = response.data;
       const decodedToken = jwtDecode(token);
       const userInfo = {
@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`${process.env.REACT_APP_IP}:3001/account`, { headers: { Authorization: `Bearer ${token}` } });
+      const response = await axios.get(`${process.env.REACT_APP_IP}/account`, { headers: { Authorization: `Bearer ${token}` } });
       const userInfo = {
         id: response.data.id,
         first_name: response.data.first_name,

@@ -1,0 +1,75 @@
+@use "../../App.scss" as vars;
+
+.div-video {
+  video {
+    max-height: 500px;
+  }
+}
+
+.container-course {
+  margin-top: 130px;
+}
+
+.ep-active {
+  color: vars.$lightRed !important;
+  border-right: vars.$lightRed 2px solid;
+}
+
+.list-eps {
+  ::-webkit-scrollbar-track {
+    background-color: vars.$darkGray;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: vars.$mediumGray;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: vars.$mediumGray;
+  }
+
+  ul {
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+
+    li {
+      color: #fff;
+      cursor: pointer;
+
+      &:hover {
+        color: vars.$lightRed;
+        transition: 0.2s;
+      }
+    }
+  }
+}
+
+.btn-prox {
+  border: 2px solid vars.$lightRed;
+  color: vars.$lightGray;
+  min-width: 130px;
+}
+
+.btn-prox:hover,
+.btn-prox:focus {
+  color: white;
+  background-color: vars.$lightRed;
+}
+
+.like-icon {
+  height: 24px;
+  color: vars.$darkRed;
+  cursor: pointer;
+  &:hover {
+    transition-duration: 0.3s;
+    color: vars.$lightRed;
+  }
+}
+
+.liked-icon {
+    color: vars.$lightRed;
+
+  font-family: "Material Icons" !important;
+}

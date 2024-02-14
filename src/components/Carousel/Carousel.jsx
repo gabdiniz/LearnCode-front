@@ -2,25 +2,26 @@ import { useEffect, useRef, useState } from "react";
 import "./Carousel.scss";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export function Carousel({ id }) {
 
   const carousel = useRef();
   const [width, setWidth] = useState(0);
 
-  const [images, setImages] = useState(null);
+  const [courses, setCourses] = useState(null);
   const [title, setTitle] = useState();
 
   useEffect(() => {
     setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
-  }, [images]);
+  }, [courses]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/categories/${id}`)
+    axios.get(`${process.env.REACT_APP_IP}/categories/${id}`)
       .then((response) => {
         const array = [];
-        response.data.courses.map((e) => array.push(e.thumbnail_url));
-        setImages(array);
+        response.data.courses.map((e) => array.push(e));
+        setCourses(array);
         setTitle(response.data.name);
       })
   }, [id]);
@@ -40,12 +41,14 @@ export function Carousel({ id }) {
           transition={{ duration: 0.8 }}
         >
           {
-            images &&
-            images.map((img) => {
+            courses &&
+            courses.map((course) => {
               return (
-                <motion.div key={img} className="item-carousel">
-                  <img src={img} alt="alt" />
-                </motion.div>
+                <Link to={`/course/${course.id}`}  key={course.id}>
+                  <motion.div className="item-carousel" >
+                    <img src={course.thumbnail_url} alt="alt" />
+                  </motion.div>
+                </Link>
               );
             })}
         </motion.div>

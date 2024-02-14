@@ -31,7 +31,7 @@ export function Register() {
       });
     }
 
-    axios.post(`${process.env.REACT_APP_IP}:3001/auth/register`, data)
+    axios.post(`${process.env.REACT_APP_IP}/auth/register`, data)
       .then(() => {
         navigate("/entrar");
         return toast.success("Conta criada!", { position: "bottom-right", duration: 2500 });

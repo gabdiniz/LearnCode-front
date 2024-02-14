@@ -43,16 +43,18 @@ export function Profile() {
   const formSenha = useForm({ resolver: yupResolver(schemaSenha) });
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_IP}:3001/account`, { headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`${process.env.REACT_APP_IP}/account`, { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => {
         const { first_name, last_name, email, phone } = response.data;
         formDados.reset({ first_name, last_name, email, phone });
       })
-
-  }, [token, formDados])
+      .catch((err) => {
+        return toast.error(err.response.data.message, { position: "bottom-right", duration: 2500});
+      });
+  }, [token, formDados]);
 
   function onSubmitDados(data) {
-    axios.put(`${process.env.REACT_APP_IP}:3001/account`, data, { headers: { Authorization: `Bearer ${token}` } })
+    axios.put(`${process.env.REACT_APP_IP}/account`, data, { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => {
         return toast.success(response.data.message, { position: "bottom-right", duration: 2500, });
       })
@@ -68,7 +70,7 @@ export function Profile() {
     }
     delete data.newPassword2;
 
-    axios.put(`${process.env.REACT_APP_IP}:3001/accountPassword`, data, { headers: { Authorization: `Bearer ${token}` } })
+    axios.put(`${process.env.REACT_APP_IP}/accountPassword`, data, { headers: { Authorization: `Bearer ${token}` } })
       .then((response) => {
         return toast.success(response.data.message, { position: "bottom-right", duration: 2500, });
       })
